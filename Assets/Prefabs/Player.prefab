@@ -125,5 +125,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca00f871d23a8ba4792ed3812b750c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPos: {x: 0, y: 2, z: 0}
+  startPos: {x: -13, y: 1, z: 6}
   RB: {fileID: 5581380472259603289}

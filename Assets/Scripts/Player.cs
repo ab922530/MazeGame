@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
-
-    public Vector3 startPos = new Vector3(-13, 1, 6);
+    public Vector3 startPos;
     public Rigidbody RB;
 
 
@@ -20,7 +18,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         RB = GetComponent<Rigidbody>();
-        GoToStart();
     }
 
     void Update()

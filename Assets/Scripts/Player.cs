@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public Rigidbody RB;
 
 
-    //Go to starting position
+    //Go to the maze's starting position
     void GoToStart()
     {
         transform.position = startPos;

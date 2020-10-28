@@ -19,9 +19,9 @@ public class MazeGame : MonoBehaviour
 
     [Header("Set Dynamically")]
 
-    public static int level; // The current level
-    public int levelMax; // The number of levels
-    public GameObject maze; // The current maze
+    private static int level; // The current level
+    private int levelMax; // The number of levels
+    private GameObject maze; // The current maze
     private float startTime; // Time when level starts
     private float time; // Time elapsed
 
@@ -52,10 +52,10 @@ public class MazeGame : MonoBehaviour
         maze.transform.position = Vector3.zero;
         time = 0f;
 
-        UpdateGUI();
+        rewrite();
     }
 
-    void UpdateGUI()
+    void rewrite()
     {
         // Show the data in the GUITexts
         uiLevel.text = "Level: " + (level + 1) + " of " + levelMax;
@@ -68,6 +68,6 @@ public class MazeGame : MonoBehaviour
     {
         time = Time.time - startTime; // Calculate time elapsed
 
-        UpdateGUI();
+        rewrite();
     }
 }

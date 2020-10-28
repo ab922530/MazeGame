@@ -59,7 +59,7 @@ public class MazeGame : MonoBehaviour
     {
         // Show the data in the GUITexts
         uiLevel.text = "Level: " + (level + 1) + " of " + levelMax;
-        uiTime.text = "Time: " + time.ToString("F1");
+        uiTime.text = "Time: " + time.ToString("F1") + " Seconds";
         uiFastest.text = "Fastest: "; // + fastest;
     }
     

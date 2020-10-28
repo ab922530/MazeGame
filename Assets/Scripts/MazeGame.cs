@@ -21,8 +21,9 @@ public class MazeGame : MonoBehaviour
 
     public static int level; // The current level
     public int levelMax; // The number of levels
-    public float time; // Time elapsed
     public GameObject maze; // The current maze
+    private float startTime; // Time when level starts
+    private float time; // Time elapsed
 
 
     // Start is called before the first frame update
@@ -42,9 +43,9 @@ public class MazeGame : MonoBehaviour
         {
             Destroy(maze);
         }
-        
-        // Find start time
 
+        // Find start time
+        startTime = Time.time;
 
         // Instantiate the new maze
         maze = Instantiate<GameObject>(mazes[level]);
@@ -58,15 +59,14 @@ public class MazeGame : MonoBehaviour
     {
         // Show the data in the GUITexts
         uiLevel.text = "Level: " + (level + 1) + " of " + levelMax;
-        uiTime.text = "Time: " + time;
+        uiTime.text = "Time: " + time.ToString("F1");
         uiFastest.text = "Fastest: "; // + fastest;
     }
     
     // Update is called once per frame
     void Update()
     {
-        // Calculate time elapsed
-
+        time = Time.time - startTime; // Calculate time elapsed
 
         UpdateGUI();
     }

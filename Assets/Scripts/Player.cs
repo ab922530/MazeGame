@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     
 
-    public Vector3 startPos;
+    public Vector3 startPos = new Vector3(-13, 1, 6);
     public Rigidbody RB;
 
 

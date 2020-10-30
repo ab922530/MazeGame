@@ -104,15 +104,4 @@ public class MazeGame : MonoBehaviour
             Invoke("NextLevel", 2f);
         }
     }
-
-    void NextLevel()
-    {
-        level++;
-        if (level == levelMax)
-        {
-            level = 0;
-        }
-
-        StartLevel();
-    }
 }

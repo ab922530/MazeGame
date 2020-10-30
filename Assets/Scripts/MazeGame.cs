@@ -55,19 +55,6 @@ public class MazeGame : MonoBehaviour
         rewrite();
     }
 
-    void NextLevel()
-    {
-        Highscore.CheckScoreBeaten();
-        level++;
-
-        if (level == levelMax)
-        {
-            level = 0;
-        }
-
-        StartLevel();
-    }
-
     void rewrite()
     {
         // Show the data in the GUITexts

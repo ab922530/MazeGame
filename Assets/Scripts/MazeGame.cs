@@ -19,11 +19,11 @@ public class MazeGame : MonoBehaviour
 
     [Header("Set Dynamically")]
 
-    private static int level; // The current level
+    public static int level; // The current level
     private int levelMax; // The number of levels
     private GameObject maze; // The current maze
     private float startTime; // Time when level starts
-    private float time; // Time elapsed
+    public float time; // Time elapsed
 
 
     // Start is called before the first frame update
@@ -32,6 +32,10 @@ public class MazeGame : MonoBehaviour
         S = this; // Define the Singleton
         level = 0;
         levelMax = mazes.Length;
+
+        // Find start time
+        startTime = Time.time;
+
         StartLevel();
     }
 
@@ -44,15 +48,24 @@ public class MazeGame : MonoBehaviour
             Destroy(maze);
         }
 
-        // Find start time
-        startTime = Time.time;
-
         // Instantiate the new maze
         maze = Instantiate<GameObject>(mazes[level]);
         maze.transform.position = Vector3.zero;
-        time = 0f;
 
         rewrite();
+    }
+
+    void NextLevel()
+    {
+        Highscore.CheckScoreBeaten();
+        level++;
+
+        if (level == levelMax)
+        {
+            level = 0;
+        }
+
+        StartLevel();
     }
 
     void rewrite()
@@ -67,7 +80,6 @@ public class MazeGame : MonoBehaviour
     void Update()
     {
         time = Time.time - startTime; // Calculate time elapsed
-
         rewrite();
     }
 }

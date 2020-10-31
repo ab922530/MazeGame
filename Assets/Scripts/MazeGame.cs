@@ -39,7 +39,10 @@ public class MazeGame : MonoBehaviour
         StartLevel();
     }
 
-
+   public void lostLife()
+    {
+        print("lost life"); 
+    }
     void StartLevel()
     {
         // Get rid of the old castle if one exists

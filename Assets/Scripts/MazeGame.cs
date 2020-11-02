@@ -47,7 +47,10 @@ public class MazeGame : MonoBehaviour
         StartLevel();
     }
 
-
+   public void lostLife()
+    {
+        print("lost life"); 
+    }
     void StartLevel()
     {
         // Get rid of the old maze if one exists
@@ -66,19 +69,6 @@ public class MazeGame : MonoBehaviour
         rewrite();
 
         mode = GameMode.playing;
-    }
-
-    void NextLevel()
-    {
-        Highscore.CheckScoreBeaten();
-        level++;
-
-        if (level == levelMax)
-        {
-            level = 0;
-        }
-
-        StartLevel();
     }
 
     void rewrite()

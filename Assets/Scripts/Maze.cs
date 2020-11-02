@@ -13,6 +13,7 @@ public class Maze : MonoBehaviour
     Vector3 angleVelocityDown;
     Vector3 angleVelocityLeft;
     Vector3 angleVelocityRight;
+    
    
 
     // public GameObject lab;
@@ -33,6 +34,11 @@ public class Maze : MonoBehaviour
         rotateMaze();
     }
 
+    public void ResetMaze()
+    {
+        print("ResetMaze called");
+        transform.rotation = Quaternion.identity;
+    }
     void rotateMaze()
     {
       

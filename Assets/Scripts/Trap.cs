@@ -5,12 +5,15 @@ using UnityEngine;
 public class Trap : MonoBehaviour
 {
     private Camera m;
-   
 
-    void OnTriggerEnter(Collider coll)
+    void OnTriggerEnter(Collider other)
     {
-        // MazeGame scriptA = Camera.main.GetComponent<MazeGame>();
-        // scriptA.LifeLost();
-        MazeGame.S.LifeLost();
+        if (other.gameObject.tag == "Player")
+        {
+            MazeGame scriptA = Camera.main.GetComponent<MazeGame>();
+            scriptA.LifeLost();
+            //MazeGame.S.LifeLost();
+        }
+        print("hi");
     }
 }

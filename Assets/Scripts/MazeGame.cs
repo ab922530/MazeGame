@@ -15,7 +15,7 @@ public class MazeGame : MonoBehaviour
     public Text uiFastest; // The UIFastest Text
     public Text uiLives; // The Text on UILives
     public int lives = 3;
-    public GameObject[] mazes;   // An array of the castles
+    public GameObject[] mazes;   // An array of the mazes
 
 
     [Header("Set Dynamically")]
@@ -44,8 +44,10 @@ public class MazeGame : MonoBehaviour
     void Update()
     {
         time = Time.time - startTime; // Calculate time elapsed
+
+        // Start next level if last one beaten
         if (Finish.finishMet == true)
-            NextLevel();
+            Invoke("NextLevel", 2f);
         RewriteUI();
     }
 
@@ -57,7 +59,7 @@ public class MazeGame : MonoBehaviour
 
     void StartLevel()
     {
-        // Get rid of the old castle if one exists
+        // Get rid of the old maze if one exists
         if (maze != null)
         {
             Destroy(maze);
@@ -85,9 +87,7 @@ public class MazeGame : MonoBehaviour
         Highscore.CheckScoreBeaten();
 
         if (++level == levelMax)
-        {
             level = 0;
-        }
 
         StartLevel();
     }

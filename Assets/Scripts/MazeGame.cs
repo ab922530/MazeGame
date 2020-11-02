@@ -3,13 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum GameMode
-{
-    idle, 
-    playing,
-    levelEnd
-}
-
 public class MazeGame : MonoBehaviour
 {
     public static MazeGame S; // a private Singleton
@@ -29,7 +22,6 @@ public class MazeGame : MonoBehaviour
     public static int level; // The current level
     private int levelMax; // The number of levels
     private GameObject maze; // The current maze
-    public GameMode mode = GameMode.idle;
     private float startTime; // Time when level starts
     public float time; // Time elapsed
 
@@ -46,14 +38,14 @@ public class MazeGame : MonoBehaviour
 
         StartLevel();
     }
-
+     
    public void lostLife()
     {
         print("lost life"); 
     }
     void StartLevel()
     {
-        // Get rid of the old maze if one exists
+        // Get rid of the old castle if one exists
         if (maze != null)
         {
             Destroy(maze);
@@ -63,12 +55,7 @@ public class MazeGame : MonoBehaviour
         maze = Instantiate<GameObject>(mazes[level]);
         maze.transform.position = Vector3.zero;
 
-        // reset the finish
-        Finish.finishMet = false;
-        
         rewrite();
-
-        mode = GameMode.playing;
     }
 
     void rewrite()
@@ -84,14 +71,5 @@ public class MazeGame : MonoBehaviour
     {
         time = Time.time - startTime; // Calculate time elapsed
         rewrite();
-
-        //Check for level end
-        if ((mode == GameMode.playing) && Finish.finishMet)
-        {
-            //Change mode to stop checking for level end
-            mode = GameMode.levelEnd;
-            //Start the next level in 2 seconds
-            Invoke("NextLevel", 2f);
-        }
     }
 }

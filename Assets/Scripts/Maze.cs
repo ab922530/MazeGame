@@ -17,7 +17,6 @@ public class Maze : MonoBehaviour
    
 
     // public GameObject lab;
-
     void Start()
     {
         angleVelocityUp = new Vector3(rotateSpeed, 0, 0);
@@ -30,19 +29,11 @@ public class Maze : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-    
         rotateMaze();
     }
 
-    public void ResetMaze()
-    {
-        print("ResetMaze called");
-        transform.rotation = Quaternion.identity;
-    }
     void rotateMaze()
     {
-      
-
         if (Input.GetKey(KeyCode.UpArrow))
         {
             Vector3 currentRotation = transform.localRotation.eulerAngles;

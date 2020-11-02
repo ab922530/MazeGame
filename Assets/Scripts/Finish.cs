@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Finish : MonoBehaviour
 {
-    static public bool finishMet = false;
+    public static bool finishMet = false;
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player")
         {
-            Finish.finishMet = true;
+            finishMet = true;
         }
         print("hi");
     }

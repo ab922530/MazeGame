@@ -14,6 +14,7 @@ public class MazeGame : MonoBehaviour
     public Text uiTime; // The UITime Text
     public Text uiFastest; // The UIFastest Text
     public Text uiLives; // The Text on UILives
+    public int lives = 3;
     public GameObject[] mazes;   // An array of the castles
 
 
@@ -38,11 +39,22 @@ public class MazeGame : MonoBehaviour
 
         StartLevel();
     }
-     
-   public void lostLife()
+
+    // Update is called once per frame
+    void Update()
     {
-        print("lost life"); 
+        time = Time.time - startTime; // Calculate time elapsed
+        if (Finish.finishMet == true)
+            NextLevel();
+        RewriteUI();
     }
+
+    public void LifeLost()
+    {
+        StartLevel();
+        lives--;
+    }
+
     void StartLevel()
     {
         // Get rid of the old castle if one exists
@@ -55,21 +67,28 @@ public class MazeGame : MonoBehaviour
         maze = Instantiate<GameObject>(mazes[level]);
         maze.transform.position = Vector3.zero;
 
-        rewrite();
+        Finish.finishMet = false;
+        RewriteUI();
     }
 
-    void rewrite()
+    void RewriteUI()
     {
         // Show the data in the GUITexts
-        uiLevel.text = "Level: " + (level + 1) + " of " + levelMax;
-        uiTime.text = "Time: " + time.ToString("F1") + " Seconds";
         uiFastest.text = "Fastest: "; // + fastest;
+        uiLevel.text = "Level: " + (level + 1) + " of " + levelMax;
+        uiTime.text = "Lives: " + lives;
+        uiTime.text = "Time: " + time.ToString("F1") + " Seconds";
     }
     
-    // Update is called once per frame
-    void Update()
+    void NextLevel()
     {
-        time = Time.time - startTime; // Calculate time elapsed
-        rewrite();
+        Highscore.CheckScoreBeaten();
+
+        if (++level == levelMax)
+        {
+            level = 0;
+        }
+
+        StartLevel();
     }
 }

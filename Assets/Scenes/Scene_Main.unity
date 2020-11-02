@@ -256,7 +256,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &757927045
 GameObject:
@@ -572,7 +572,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1479777587
 GameObject:
@@ -606,7 +606,7 @@ Transform:
   - {fileID: 236412649}
   - {fileID: 1613755273}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1613755272
 GameObject:
@@ -887,7 +887,7 @@ RectTransform:
   - {fileID: 2129175876}
   - {fileID: 2038742156}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -995,6 +995,7 @@ MonoBehaviour:
   uiTime: {fileID: 757927047}
   uiFastest: {fileID: 2129175877}
   uiLives: {fileID: 2038742157}
+  lives: 3
   mazes:
   - {fileID: 3648177546745358743, guid: 421eb83a6f1a6b843ac5b2c30722fcd9, type: 3}
   - {fileID: 3648177546745358743, guid: fa5756a17d134bc4e99245c2a021987f, type: 3}

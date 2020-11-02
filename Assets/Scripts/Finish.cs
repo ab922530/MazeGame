@@ -11,6 +11,5 @@ public class Finish : MonoBehaviour
         {
             finishMet = true;
         }
-        print("hi");
     }
 }

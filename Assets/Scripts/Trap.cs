@@ -8,12 +8,8 @@ public class Trap : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            MazeGame scriptA = Camera.main.GetComponent<MazeGame>();
-            scriptA.LifeLost();
-            //MazeGame.S.LifeLost();
-        }
-        print("hi");
+        // MazeGame.S.LifeLost();
+        MazeGame scriptA = Camera.main.GetComponent<MazeGame>();
+        scriptA.LifeLost();
     }
 }

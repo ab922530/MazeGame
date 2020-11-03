@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Highscore : MonoBehaviour
 {
-    public static int highestLevel = 0;
-    public static float fastestTime = 200000f;
+    public static int highestLevel = 2;
+    public static float fastestTime = 20000f;
 
     void Awake()
     {
@@ -19,7 +19,7 @@ public class Highscore : MonoBehaviour
             highestLevel = PlayerPrefs.GetInt("Fastest Time");
 
         // Assign the high scores to Highest Level and Fastest Time
-        PlayerPrefs.SetInt("Highest Level", highestLevel);
+        PlayerPrefs.SetInt("Highest Level", 2);
         PlayerPrefs.SetFloat("Fastest Time", fastestTime);
     }
 
@@ -27,14 +27,16 @@ public class Highscore : MonoBehaviour
     {
         int level = MazeGame.level;
         float time = MazeGame.S.time;
-        if (level <= PlayerPrefs.GetInt("Highest Level"))
+        if (level >= PlayerPrefs.GetInt("Highest Level"))
         {
             PlayerPrefs.SetInt("Highest Level", highestLevel);
-            if (time < PlayerPrefs.GetFloat("Fastest Time"))
+
+            if (level > PlayerPrefs.GetInt("Highest Level") &&
+              time < PlayerPrefs.GetFloat("Fastest Time"))
                 PlayerPrefs.SetFloat("Fastest Time", time);
         }
 
         highestLevel = PlayerPrefs.GetInt("Highest Level");
-        fastestTime = PlayerPrefs.GetInt("Fastest Time");
+        fastestTime = PlayerPrefs.GetFloat("Fastest Time");
     }
 }

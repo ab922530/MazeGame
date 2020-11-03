@@ -14,6 +14,7 @@ public class MazeGame : MonoBehaviour
     public Text uiTime; // The UITime Text
     public Text uiRecord; // The UIFastest Text
     public Text uiLives; // The Text on UILives
+    public Text uiGameOver; // The Game Over Text
     public int lives = 3;
     public GameObject[] mazes;   // An array of the mazes
 
@@ -34,6 +35,8 @@ public class MazeGame : MonoBehaviour
         level = 0;
         levelMax = mazes.Length;
 
+        uiGameOver.enabled = false;
+
         // Find start time
         startTime = Time.time;
 
@@ -43,6 +46,17 @@ public class MazeGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (lives == 0 || level >= levelMax)
+        {
+            Destroy(maze);
+            uiGameOver.enabled = true;
+            uiGameOver.text = "Game Over!\n" +
+                              "High Score:\n" +
+                              Highscore.highestLevel + " Levels\n" +
+                              Highscore.fastestTime.ToString("F2") + " Seconds";
+            return;
+        }
+
         time = Time.time - startTime; // Calculate time elapsed
 
         // Start next level if last one beaten
@@ -51,11 +65,13 @@ public class MazeGame : MonoBehaviour
 
         RewriteUI();
     }
-
-    public void LifeLost()
+    void NextLevel()
     {
+        Highscore.CheckScoreBeaten();
+
+        level++;
+
         StartLevel();
-        lives--;
     }
 
     void StartLevel()
@@ -75,19 +91,16 @@ public class MazeGame : MonoBehaviour
     void RewriteUI()
     {
         // Show the data in the GUITexts
-        uiRecord.text = "Fastest: "; // + fastest;
+        uiRecord.text = "Record: " + Highscore.highestLevel + " Levels\n        " +
+                        Highscore.fastestTime.ToString("F2") + " Seconds";
         uiLevel.text = "Level: " + (level + 1) + " of " + levelMax;
         uiLives.text = "Lives: " + lives;
         uiTime.text = "Time: " + time.ToString("F1") + " Seconds";
     }
-    
-    void NextLevel()
+
+    public void LifeLost()
     {
-        Highscore.CheckScoreBeaten();
-
-        if (++level == levelMax)
-            level = 0;
-
         StartLevel();
+        lives--;
     }
 }

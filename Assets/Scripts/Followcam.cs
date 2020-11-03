@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Followcam : MonoBehaviour
 {
-
     [Header("Set in Inspector")]
 
     public float easing = 0.05f;
     public float test = 0f;
     public Vector2 minXY = Vector2.zero;
+
     [Header("Set Dynamically")]
     public GameObject POI;
     public float camZ;
@@ -18,10 +18,12 @@ public class Followcam : MonoBehaviour
     {
         POI = GameObject.FindWithTag("Player");
     }
+
     void Awake()
     {
         camZ = this.transform.position.z;
     }
+
     void FixedUpdate()
     {
         POI = GameObject.FindWithTag("Player");
@@ -29,7 +31,6 @@ public class Followcam : MonoBehaviour
         Vector3 destination;
         if (POI == null)
         {
-         
             destination = Vector3.zero;
         }
         else
@@ -48,16 +49,7 @@ public class Followcam : MonoBehaviour
             }
         }
 
-        
         transform.LookAt(POI.transform,Vector3.up);
-
-    }
-    // Start is called before the first frame update
-
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 }

@@ -8,3 +8,4 @@
 ![youball](https://github.com/ab922530/MazeGame/blob/master/youball.png)
 ![goal](https://github.com/ab922530/MazeGame/blob/master/goal!.png)
 ![fire](https://github.com/ab922530/MazeGame/blob/master/fire.png)
+![map](https://github.com/ab922530/MazeGame/blob/master/map.png)

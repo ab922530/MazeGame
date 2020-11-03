@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 1585268603}
   - component: {fileID: 1585268602}
   m_Layer: 5
-  m_Name: UIHighscore
+  m_Name: UIGameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -638,7 +638,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1957399821}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -970,6 +970,7 @@ RectTransform:
   - {fileID: 1036587301}
   - {fileID: 757927046}
   - {fileID: 2038742156}
+  - {fileID: 2129175876}
   - {fileID: 1585268601}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1078,8 +1079,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiLevel: {fileID: 1036587302}
   uiTime: {fileID: 757927047}
-  uiRecord: {fileID: 0}
+  uiRecord: {fileID: 2129175877}
   uiLives: {fileID: 2038742157}
+  uiGameOver: {fileID: 1585268602}
   lives: 3
   mazes:
   - {fileID: 3648177546745358743, guid: 421eb83a6f1a6b843ac5b2c30722fcd9, type: 3}
@@ -1214,12 +1216,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1957399821}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 789, y: 0}
+  m_AnchoredPosition: {x: 38, y: 0}
   m_SizeDelta: {x: 190, y: 32}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &2129175877

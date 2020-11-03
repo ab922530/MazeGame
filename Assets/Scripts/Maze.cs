@@ -34,10 +34,11 @@ public class Maze : MonoBehaviour
 
     void rotateMaze()
     {
+       
         if (Input.GetKey(KeyCode.UpArrow))
         {
             Vector3 currentRotation = transform.localRotation.eulerAngles;
-          
+            currentRotation.y = 0f;
             print(currentRotation.x);
             Mathf.Clamp(currentRotation.x, 0, rotAngle);
             if (currentRotation.x >= 0 + rotAngle || currentRotation.x <= 360 - rotAngle)
@@ -54,7 +55,7 @@ public class Maze : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow))
         {
             Vector3 currentRotation = transform.localRotation.eulerAngles;
-          
+            currentRotation.y = 0f;
             print(currentRotation.x);
             Mathf.Clamp(currentRotation.x, 0, rotAngle);
             if (currentRotation.x <= 0 + rotAngle || currentRotation.x >= 360 - rotAngle)
@@ -66,8 +67,8 @@ public class Maze : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             Vector3 currentRotation = transform.localRotation.eulerAngles;
+            currentRotation.y = 0f;
 
-            
             Mathf.Clamp(currentRotation.z, 0, rotAngle);
             if (currentRotation.z >= 0 + rotAngle || currentRotation.z <= 360 - rotAngle)
             {
@@ -84,7 +85,7 @@ public class Maze : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             Vector3 currentRotation = transform.localRotation.eulerAngles;
-
+            currentRotation.y = 0f;
 
             Mathf.Clamp(currentRotation.z, 0, rotAngle);
          

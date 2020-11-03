@@ -68,9 +68,7 @@ public class MazeGame : MonoBehaviour
     void NextLevel()
     {
         Highscore.CheckScoreBeaten();
-
         level++;
-
         StartLevel();
     }
 

@@ -19,7 +19,7 @@ public class Highscore : MonoBehaviour
             highestLevel = PlayerPrefs.GetInt("Fastest Time");
 
         // Assign the high scores to Highest Level and Fastest Time
-        PlayerPrefs.SetInt("Highest Level", 2);
+        PlayerPrefs.SetInt("Highest Level", highestLevel);
         PlayerPrefs.SetFloat("Fastest Time", fastestTime);
     }
 

@@ -7,6 +7,7 @@ public class Highscore : MonoBehaviour
 {
     public static int highestLevel = 2;
     public static float fastestTime = 20000f;
+    public  static bool newHighScore = false;
 
     void Awake()
     {
@@ -29,14 +30,19 @@ public class Highscore : MonoBehaviour
         float time = MazeGame.S.time;
         if (level >= PlayerPrefs.GetInt("Highest Level"))
         {
-            PlayerPrefs.SetInt("Highest Level", highestLevel);
+            if (level == PlayerPrefs.GetInt("Highest Level") && time < PlayerPrefs.GetFloat("Fastest Time"))
+            {
+                PlayerPrefs.SetInt("Highest Level", level);
+                PlayerPrefs.SetFloat("Fastest Time", fastestTime);
+                newHighScore = true;
+                return;
+            }
 
-            if (level > PlayerPrefs.GetInt("Highest Level") &&
-              time < PlayerPrefs.GetFloat("Fastest Time"))
-                PlayerPrefs.SetFloat("Fastest Time", time);
+            PlayerPrefs.SetInt("Highest Level", level);
+            newHighScore = true;
+      
         }
 
-        highestLevel = PlayerPrefs.GetInt("Highest Level");
-        fastestTime = PlayerPrefs.GetFloat("Fastest Time");
+        
     }
 }

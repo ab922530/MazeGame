@@ -61,7 +61,7 @@ public class MazeGame : MonoBehaviour
 
         // Start next level if last one beaten
         if (Finish.finishMet == true)
-            Invoke("NextLevel", 2f);
+            Invoke("NextLevel", 0f);
 
         RewriteUI();
     }
